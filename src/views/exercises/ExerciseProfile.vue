@@ -4,12 +4,13 @@
     <img
       :src="`https://www.rarityguide.com/images/fanime/2009/costumesdrmario.JPG`"
     />
-    <input v-model="name" :placeholder="name" />
-    <label for="age">Age</label>
+    <label for="name"></label>
+    <input id="name" v-model="name" :placeholder="name" autocomplete="name" />
+    <h3>Age</h3>
     <p>{{ age }}</p>
-    <label for="calcul">Age + 10</label>
+    <h3>Age + 10</h3>
     <p>{{ calcAge() }}</p>
-    <label for="fetishes">Nombre fétiche</label>
+    <h3>Nombre fétiche</h3>
     <p>{{ fetish }}</p>
   </div>
 </template>
@@ -44,6 +45,6 @@ div {
 }
 img {
   width: 24rem;
-  align-self: center;
+  border-radius: 1rem;
 }
 </style>
