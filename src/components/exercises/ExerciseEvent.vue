@@ -5,11 +5,11 @@
     <input type="number" v-model="valueToAdd" />
   </div>
   <div>
-    <button class="left" @click="reduceValue">Moins</button>
+    <button class="left" @click="reduceValue(valueToAdd)">Moins</button>
     <p>
       Le nombre : <span>{{ nombre }}</span>
     </p>
-    <button class="right" @click="addValue">Plus</button>
+    <button class="right" @click="addValue(valueToAdd)">Plus</button>
   </div>
 </template>
 
@@ -20,11 +20,11 @@ export default {
   setup() {
     const nombre = ref(0);
     const valueToAdd = ref(1);
-    const addValue = () => {
-      nombre.value += parseInt(valueToAdd.value);
+    const addValue = (toAdd) => {
+      nombre.value += parseInt(toAdd);
     };
     const reduceValue = () => {
-      nombre.value -= parseInt(valueToAdd.value);
+      nombre.value -= parseInt(toAdd);
     };
 
     return {
