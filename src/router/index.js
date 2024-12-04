@@ -22,12 +22,13 @@ const router = createRouter({
     {
       path: "/lessons/interpolation-text",
       name: "TextInterpolation",
-      component: () => import("../views/lessons/LessonTextInterpolation.vue"),
+      component: () =>
+        import("../components/lessons/LessonTextInterpolation.vue"),
     },
     {
       path: "/lessons/directives",
       name: "Directives",
-      component: () => import("../views/lessons/LessonDirectives.vue"),
+      component: () => import("../components/lessons/LessonDirectives.vue"),
     },
     {
       path: "/exercises",
@@ -37,17 +38,22 @@ const router = createRouter({
     {
       path: "/exercises/text",
       name: "ExerciceText",
-      component: () => import("../views/exercises/ExerciseText.vue"),
+      component: () => import("../components/exercises/ExerciseText.vue"),
     },
     {
       path: "/exercises/functions",
       name: "ExerciceFunction",
-      component: () => import("../views/exercises/ExerciseFunction.vue"),
+      component: () => import("../components/exercises/ExerciseFunction.vue"),
     },
     {
       path: "/exercises/profile",
-      name: "ExerciceFunction",
-      component: () => import("../views/exercises/ExerciseProfile.vue"),
+      name: "ExerciceProfile",
+      component: () => import("../components/exercises/ExerciseProfile.vue"),
+    },
+    {
+      path: "/exercises/events",
+      name: "Events",
+      component: () => import("../components/exercises/ExerciseEvent.vue"),
     },
     {
       path: "/:pathMatch(.*)*",

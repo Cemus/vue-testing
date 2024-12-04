@@ -13,6 +13,9 @@
       <li>
         <router-link to="/exercises/profile">Profil utilisateur</router-link>
       </li>
+      <li>
+        <router-link to="/exercises/events">Clique</router-link>
+      </li>
     </ul>
   </div>
 </template>
