@@ -5,26 +5,35 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      alias: "/home",
+      alias: "/",
       name: "Home",
       component: () => import("../views/Home.vue"),
     },
     {
-      path: "/about",
+      path: "/à-propos",
       name: "About",
       component: () => import("../views/About.vue"),
     },
     {
-      path: "/lessons",
+      path: "/leçons",
       name: "Lesson",
       component: () => import("../views/Lessons.vue"),
     },
     {
-      path: "/lessons/text-interpolation",
-      name: "Text Interpolation",
+      path: "/leçons/interpolation-texte",
+      name: "TextInterpolation",
       component: () => import("../views/lessons/LessonTextInterpolation.vue"),
     },
-
+    {
+      path: "/exercices",
+      name: "Exercises",
+      component: () => import("../views/Exercises.vue"),
+    },
+    {
+      path: "/exercices/exercices-texte",
+      name: "ExerciceText",
+      component: () => import("../views/exercises/ExerciseText.vue"),
+    },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

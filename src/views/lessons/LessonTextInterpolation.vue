@@ -1,41 +1,42 @@
 <template>
-  <div class="container py-5">
-    <header class="text-center mb-5">
-      <h1 class="display-4 fw-bold">L'interpolation de texte dans Vue.js</h1>
-      <p class="lead">
-        L'interpolation permet d'insérer dynamiquement des valeurs JavaScript dans le DOM via des expressions dans le
-        HTML.
-      </p>
-    </header>
+  <div class="page">
+    <h1 class="">L'interpolation de texte dans Vue.js</h1>
+    <p>
+      L'interpolation permet d'insérer dynamiquement des valeurs JavaScript dans
+      le DOM via des expressions dans le HTML.
+    </p>
 
-    <section id="examples" class="mb-5">
-      <h2 class="fw-bold mb-3">Exemples pratiques</h2>
+    <section id="examples">
+      <h2>Exemples pratiques</h2>
 
       <!-- Exemple de base -->
-      <div class="mb-4">
+      <div x>
         <h3>Exemple de base</h3>
         <p>Message : {{ message }}</p>
       </div>
 
       <!-- Expressions JavaScript -->
-      <div class="mb-4">
+      <div>
         <h3>Utilisation des expressions</h3>
         <p>2 + 2 = {{ 2 + 2 }}</p>
-        <p>Nom complet : {{ firstName + ' ' + lastName }}</p>
+        <p>Nom complet : {{ firstName + " " + lastName }}</p>
       </div>
 
       <!-- Appel de fonctions -->
-      <div class="mb-4">
+      <div>
         <h3>Appels de fonctions dans l'interpolation</h3>
         <p>Message en majuscules : {{ toUpperCase(message) }}</p>
       </div>
     </section>
 
-    <footer class="text-center mt-5">
+    <footer>
       <p>
         Pour plus d'informations, consultez la
-        <a href="https://vuejs.org/guide/essentials/template-syntax.html" class="link-primary">documentation officielle
-          sur la syntaxe des templates</a>.
+        <a
+          href="https://vuejs.org/guide/essentials/template-syntax.html"
+          class="link-primary"
+          >documentation officielle sur la syntaxe des templates</a
+        >.
       </p>
     </footer>
   </div>
@@ -54,7 +55,6 @@ const count = ref(0);
 function toUpperCase(str) {
   return str.toUpperCase();
 }
-
 </script>
 
 <style scoped>

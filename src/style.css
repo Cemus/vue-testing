@@ -69,6 +69,23 @@ header {
   text-align: center;
 }
 
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+li {
+  list-style-type: none;
+}
+li::before {
+  position: relative;
+  content: "⬪";
+  color: #747bff;
+  top: 0;
+  right: 0.5rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

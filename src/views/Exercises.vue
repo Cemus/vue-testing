@@ -1,9 +1,9 @@
 <template>
   <div class="page">
-    <h2>Les leçons :</h2>
+    <h2>Les exercices :</h2>
     <ul>
       <li>
-        <router-link to="/leçons/interpolation-texte"
+        <router-link to="/exercices/exercices-texte"
           >Interpolation du texte</router-link
         >
       </li>
