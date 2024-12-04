@@ -53,7 +53,12 @@ const router = createRouter({
     {
       path: "/exercises/events",
       name: "Events",
-      component: () => import("../components/exercises/ExerciseEvent.vue"),
+      component: () => import("../components/exercises/ExerciseEvents.vue"),
+    },
+    {
+      path: "/exercises/more-events",
+      name: "MoreEvents",
+      component: () => import("../components/exercises/ExerciseMoreEvents.vue"),
     },
     {
       path: "/:pathMatch(.*)*",

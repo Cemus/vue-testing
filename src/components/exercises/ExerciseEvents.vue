@@ -11,6 +11,11 @@
     </p>
     <button class="right" @click="addValue(valueToAdd)">Plus</button>
   </div>
+  <br />
+  <div>
+    <h3>{{ uneString }}</h3>
+    <input v-on:input="capterInput($event)" type="text" />
+  </div>
 </template>
 
 <script>
@@ -20,6 +25,7 @@ export default {
   setup() {
     const nombre = ref(0);
     const valueToAdd = ref(1);
+
     const addValue = (toAdd) => {
       nombre.value += parseInt(toAdd);
     };
@@ -27,11 +33,18 @@ export default {
       nombre.value -= parseInt(toAdd);
     };
 
+    const uneString = ref("Hello");
+    const capterInput = (event) => {
+      console.log(event);
+      uneString.value = event.target.value;
+    };
     return {
       nombre,
       addValue,
       reduceValue,
       valueToAdd,
+      uneString,
+      capterInput,
     };
   },
 };
