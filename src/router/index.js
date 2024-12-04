@@ -15,6 +15,17 @@ const router = createRouter({
       component: () => import("../views/About.vue"),
     },
     {
+      path: "/lessons",
+      name: "Lesson",
+      component: () => import("../views/Lessons.vue"),
+    },
+    {
+      path: "/lessons/text-interpolation",
+      name: "Text Interpolation",
+      component: () => import("../views/lessons/LessonTextInterpolation.vue"),
+    },
+
+    {
       path: "/:pathMatch(.*)*",
       name: "NotFound",
       component: () => import("../views/NotFoundView.vue"),
