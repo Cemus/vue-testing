@@ -1,9 +1,7 @@
 <template>
   <div>
     <h2>Profil utilisateur</h2>
-    <img
-      :src="`https://www.rarityguide.com/images/fanime/2009/costumesdrmario.JPG`"
-    />
+    <img :src="imageSrc" />
     <label for="name"></label>
     <input id="name" v-model="name" :placeholder="name" autocomplete="name" />
     <h3>Age</h3>
@@ -19,6 +17,9 @@
 import { ref } from "vue";
 export default {
   setup() {
+    const imageSrc = ref(
+      `https://www.rarityguide.com/images/fanime/2009/costumesdrmario.JPG`
+    );
     const name = ref("Dr. Mario");
     const age = ref(45);
 
@@ -27,6 +28,7 @@ export default {
       return age.value + 10;
     };
     return {
+      imageSrc,
       name,
       age,
       fetish,
