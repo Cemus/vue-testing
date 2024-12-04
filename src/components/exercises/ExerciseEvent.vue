@@ -23,7 +23,7 @@ export default {
     const addValue = (toAdd) => {
       nombre.value += parseInt(toAdd);
     };
-    const reduceValue = () => {
+    const reduceValue = (toAdd) => {
       nombre.value -= parseInt(toAdd);
     };
 
