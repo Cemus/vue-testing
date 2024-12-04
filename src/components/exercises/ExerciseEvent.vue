@@ -26,14 +26,11 @@ export default {
     const reduceValue = () => {
       nombre.value -= parseInt(valueToAdd.value);
     };
-    const addSpecificValue = (value) => {
-      valueToAdd.value = value;
-    };
+
     return {
       nombre,
       addValue,
       reduceValue,
-      addSpecificValue,
       valueToAdd,
     };
   },
