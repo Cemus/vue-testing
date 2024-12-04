@@ -2,11 +2,11 @@
   <nav>
     <router-link to="/">Accueil</router-link>
     |
-    <router-link to="/à-propos">À propos</router-link>
+    <router-link to="/about">À propos</router-link>
     |
-    <router-link to="/leçons">Leçons</router-link>
+    <router-link to="/lessons">Leçons</router-link>
     |
-    <router-link to="/exercices">Exercices</router-link>
+    <router-link to="/exercises">Exercices</router-link>
     |
   </nav>
 </template>
