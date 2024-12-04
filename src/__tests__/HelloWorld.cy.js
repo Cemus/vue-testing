@@ -1,8 +1,8 @@
-import HelloWorld from "./HelloWorld.vue";
+import Home from "../views/Home.vue";
 
-describe("<HelloWorld />", () => {
+describe("<Home />", () => {
   it("renders", () => {
     // see: https://on.cypress.io/mounting-vue
-    cy.mount(HelloWorld);
+    cy.mount(Home);
   });
 });
