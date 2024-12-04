@@ -91,6 +91,10 @@ li::before {
     color: #213547;
     background-color: #ffffff;
   }
+  header,
+  footer {
+    color: #f9f9f9;
+  }
   a:hover {
     color: #747bff;
   }
