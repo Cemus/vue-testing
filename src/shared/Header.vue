@@ -10,3 +10,9 @@ import NavBar from "./NavBar.vue";
 
 export default { components: { NavBar } };
 </script>
+
+<style scoped>
+* {
+  user-select: none;
+}
+</style>
