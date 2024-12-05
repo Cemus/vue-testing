@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Coucou</h1>
+    <h1><router-link to="/">Coucou</router-link></h1>
     <NavBar />
   </header>
 </template>

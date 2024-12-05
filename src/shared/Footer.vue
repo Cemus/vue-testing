@@ -1,30 +1,23 @@
 <template>
   <footer>
     <p>Gros footer</p>
-    <p>Date du jour : {{ date }}</p>
+    <p>Date et heure du jour : {{ date }}</p>
   </footer>
 </template>
 
-<script>
+<script setup>
 import { onMounted, onUnmounted, ref } from "vue";
 
-export default {
-  setup() {
-    const date = ref(new Date().toTimeString());
-    const updateDate = () => (date.value = new Date().toTimeString());
-    onMounted(() => {
-      const interval = setInterval(() => {
-        updateDate();
-      }, 1000);
-      onUnmounted(() => {
-        clearInterval(interval);
-      });
-    });
-    return {
-      date,
-    };
-  },
-};
+const date = ref(new Date().toLocaleString());
+const updateDate = () => (date.value = new Date().toLocaleString());
+onMounted(() => {
+  const interval = setInterval(() => {
+    updateDate();
+  }, 1000);
+  onUnmounted(() => {
+    clearInterval(interval);
+  });
+});
 </script>
 
 <style></style>

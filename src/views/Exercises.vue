@@ -19,6 +19,9 @@
       <li>
         <router-link to="/exercises/more-events">Des événements...</router-link>
       </li>
+      <li>
+        <router-link to="/exercises/bug">Un bug</router-link>
+      </li>
     </ul>
   </div>
 </template>

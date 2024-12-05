@@ -61,6 +61,11 @@ const router = createRouter({
       component: () => import("../components/exercises/ExerciseMoreEvents.vue"),
     },
     {
+      path: "/exercises/bug",
+      name: "Bug",
+      component: () => import("../components/exercises/ExerciseBug.vue"),
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "NotFound",
       component: () => import("../views/NotFoundView.vue"),
