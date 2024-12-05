@@ -3,7 +3,7 @@
     <h2>Encore des events</h2>
     <input v-on:keyup="getInputs($event, 'one')" />
     <p>{{ input1 }}</p>
-    <input v-on:keyup.escape="getInputs($event, 'two')" />
+    <input v-on:keyup.esc="getInputs($event, 'two')" />
     <p>{{ input2 }}</p>
     <button @click="throwAlert">Alerte !</button>
   </div>
