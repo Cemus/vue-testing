@@ -30,7 +30,7 @@ const detectWords = () => {
   }
   if (detectedWords.includes("activeHello activeWorld")) {
     detectedWords = "activeHelloWorld";
-    input1.value = "Hello World";
+    input1.value = "HELLO WORLD";
   }
   return detectedWords;
 };
@@ -43,10 +43,14 @@ const detectWords = () => {
   letter-spacing: 1rem;
 }
 .activeHelloWorld {
+  position: relative;
   border: dashed green 0.2rem;
   padding: 1rem;
   font-size: larger;
   letter-spacing: 1.2rem;
+  animation: lolilol infinite 2s;
+  animation-timing-function: ease-in-out;
+  top: 0;
 }
 p {
   transition: all;
@@ -80,5 +84,17 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+@keyframes lolilol {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -8px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 </style>
