@@ -11,13 +11,12 @@ const router = createRouter({
       name: "Home",
       component: () => import("../views/Home.vue"),
     },
-    ...lessonsRouter,
     {
       path: "/about",
       name: "About",
       component: () => import("../views/About.vue"),
     },
-
+    ...lessonsRouter,
     ...exercisesRoute,
     {
       path: "/:pathMatch(.*)*",
@@ -26,5 +25,4 @@ const router = createRouter({
     },
   ],
 });
-console.log(exercisesRoute.map((route) => route));
 export default router;
