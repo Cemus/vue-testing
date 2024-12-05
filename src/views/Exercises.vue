@@ -31,6 +31,11 @@
       <li>
         <router-link to="/exercises/style-2">Les styles : partie 2</router-link>
       </li>
+      <li>
+        <router-link to="/exercises/dynamic-style"
+          >Styles dynamiques</router-link
+        >
+      </li>
     </ul>
   </div>
 </template>
