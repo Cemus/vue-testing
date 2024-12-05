@@ -25,6 +25,9 @@
       <li>
         <router-link to="/exercises/winner">Numéro gagnant</router-link>
       </li>
+      <li>
+        <router-link to="/exercises/style">Les styles</router-link>
+      </li>
     </ul>
   </div>
 </template>
