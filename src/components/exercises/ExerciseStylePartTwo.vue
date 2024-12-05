@@ -9,22 +9,21 @@
         }
       "
     >
-      <p>Carte {{ color1 }}</p>
+      <p>Carte 1</p>
     </div>
+
     <div
       class="card"
       :class="[isSecondActive ? 'secondActive' : 'secondInactive']"
       @click="isSecondActive = !isSecondActive"
     >
-      <p>Carte {{ color2 }}</p>
+      <p>Carte 2</p>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-const color1 = ref("blue");
-const color2 = ref("purple");
 
 const isFirstActive = ref(false);
 const isSecondActive = ref(false);
@@ -54,7 +53,7 @@ const isSecondActive = ref(false);
 }
 
 .firstInactive {
-  background-color: aqua;
+  background-color: blue;
 }
 
 .secondActive {
