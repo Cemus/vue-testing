@@ -22,14 +22,15 @@ const input2 = ref("");
 
 const detectWords = () => {
   let detectedWords = "";
-  if (input1.value.includes("hello")) {
+  if (input1.value.toUpperCase().includes("HELLO")) {
     detectedWords += " activeHello";
   }
-  if (input1.value.includes("world")) {
+  if (input1.value.toUpperCase().includes("WORLD")) {
     detectedWords += " activeWorld";
   }
   if (detectedWords.includes("activeHello activeWorld")) {
     detectedWords = "activeHelloWorld";
+    input1.value = "Hello World";
   }
   return detectedWords;
 };
@@ -37,15 +38,20 @@ const detectWords = () => {
 
 <style scoped>
 .activeWorld,
-.activeHello,
-.activeHelloWorld {
-  background-color: "blue";
+.activeHello {
   font-size: larger;
   letter-spacing: 1rem;
+}
+.activeHelloWorld {
+  border: dashed green 0.2rem;
+  padding: 1rem;
+  font-size: larger;
+  letter-spacing: 1.2rem;
 }
 p {
   transition: all;
   transition-duration: 0.3s;
+  border-radius: 0.2rem;
 }
 
 .activeHelloWorld::after {
