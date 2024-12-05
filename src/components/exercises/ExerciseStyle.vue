@@ -5,14 +5,14 @@
       :style="{ backgroundColor: color1 }"
       @click="toggleAlternativeColor(color1)"
     >
-      <p>Carte bleue</p>
+      <p>Carte {{ color1 }}</p>
     </div>
     <div
       class="card"
       :style="{ backgroundColor: color2 }"
       @click="toggleAlternativeColor(color2)"
     >
-      <p>Carte rose</p>
+      <p>Carte {{ color2 }}</p>
     </div>
   </div>
 </template>
