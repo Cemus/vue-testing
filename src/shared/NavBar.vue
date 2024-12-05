@@ -6,6 +6,7 @@
     |
     <router-link to="/exercises">Exercices</router-link>
     |
+    <router-link to="/game">Game</router-link>
   </nav>
 </template>
 

@@ -2,15 +2,19 @@
   <div class="main">
     <div
       class="card"
-      :style="{ backgroundColor: color1 }"
-      @click="color1 === 'blue' ? (color1 = 'red') : (color1 = 'blue')"
+      :class="[isFirstActive ? 'firstActive' : 'firstInactive']"
+      @click="
+        {
+          isFirstActive = !isFirstActive;
+        }
+      "
     >
       <p>Carte {{ color1 }}</p>
     </div>
     <div
       class="card"
-      :style="{ backgroundColor: color2 }"
-      @click="color2 === 'purple' ? (color2 = 'green') : (color2 = 'purple')"
+      :class="[isSecondActive ? 'secondActive' : 'secondInactive']"
+      @click="isSecondActive = !isSecondActive"
     >
       <p>Carte {{ color2 }}</p>
     </div>
@@ -21,6 +25,9 @@
 import { ref } from "vue";
 const color1 = ref("blue");
 const color2 = ref("purple");
+
+const isFirstActive = ref(false);
+const isSecondActive = ref(false);
 </script>
 
 <style scoped>
@@ -40,5 +47,21 @@ const color2 = ref("purple");
 
 .card:hover {
   cursor: pointer;
+}
+
+.firstActive {
+  background-color: red;
+}
+
+.firstInactive {
+  background-color: aqua;
+}
+
+.secondActive {
+  background-color: green;
+}
+
+.secondInactive {
+  background-color: purple;
 }
 </style>

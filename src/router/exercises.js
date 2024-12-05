@@ -44,6 +44,11 @@ const exercisesRoute = [
     name: "ex-style",
     component: () => import("../components/exercises/ExerciseStyle.vue"),
   },
+  {
+    path: "/exercises/style-2",
+    name: "ex-style-2",
+    component: () => import("../components/exercises/ExerciseStylePartTwo.vue"),
+  },
 ];
 
 export default exercisesRoute;
