@@ -99,6 +99,14 @@ li::before {
   right: 0.5rem;
 }
 
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4690cd;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: var(--brand);

@@ -11,13 +11,7 @@
         {{ groceries }}
       </li>
     </ul>
-    <button
-      @click="
-        () => {
-          listVisible = !listVisible;
-        }
-      "
-    >
+    <button @click="listVisible = !listVisible">
       {{ listVisible ? "Masquer la liste" : "Afficher la liste" }}
     </button>
     <input v-model="grocerieText" />
