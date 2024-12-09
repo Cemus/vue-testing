@@ -55,6 +55,11 @@ const exercisesRoute = [
     component: () =>
       import("../components/exercises/ExerciseDynamicStyling.vue"),
   },
+  {
+    path: "/exercises/for",
+    name: "ex-for",
+    component: () => import("../components/exercises/ExerciseFor.vue"),
+  },
 ];
 
 export default exercisesRoute;

@@ -1,6 +1,18 @@
 <script setup>
 import { TresCanvas } from "@tresjs/core";
 import { OrbitControls } from "@tresjs/cientos";
+import { ref } from "vue";
+
+const torusRef = ref(torusRef);
+const animate = () => {
+  if (torusRef.value) {
+    torusRef.value.rotation.x += 1;
+    torusRef.value.rotation.y += 1;
+  }
+  requestAnimationFrame(animate);
+};
+
+animate();
 </script>
 
 <template>
@@ -12,7 +24,7 @@ import { OrbitControls } from "@tresjs/cientos";
     preset="realistic"
   >
     <TresPerspectiveCamera :position="[3, 3, 3]" :look-at="[0, 0, 0]" />
-    <TresMesh>
+    <TresMesh ref="torusRef">
       <TresTorusGeometry :args="[1, 0.5, 16, 32]" />
       <TresMeshBasicMaterial color="#c44960" />
     </TresMesh>
