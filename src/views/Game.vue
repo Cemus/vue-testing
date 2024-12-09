@@ -1,50 +1,65 @@
 <script setup>
-import { TresCanvas } from "@tresjs/core";
+import { TresCanvas, useRenderLoop } from "@tresjs/core";
 import { OrbitControls } from "@tresjs/cientos";
-import { onMounted, ref } from "vue";
-const torusRef = ref(null);
-const torusPos = ref([0, 0, 0]);
+import { onMounted, ref, shallowRef } from "vue";
 
+const torusRef = shallowRef(null);
+const torusPos = ref([0, 0, 0]);
+const runAnimation = ref(false);
+/* const torusTexture = useLoader(TextureLoader, "./metalBaseColor.png");
+ */
 const moveTorus = (event) => {
   if (torusRef.value) {
-    const step = 0.1;
-    switch (event.key) {
-      case "ArrowUp":
-        torusPos.value[1] += step;
-        break;
-      case "ArrowDown":
-        torusPos.value[1] -= step;
-        break;
-      case "ArrowLeft":
-        torusPos.value[0] -= step;
-        break;
-      case "ArrowRight":
-        torusPos.value[0] += step;
-        break;
-      default:
-        break;
+    if (!runAnimation.value) {
+      const step = 0.1;
+      switch (event.key) {
+        case "z":
+          torusPos.value[1] += step;
+          break;
+        case "s":
+          torusPos.value[1] -= step;
+          break;
+        case "q":
+          torusPos.value[0] -= step;
+          break;
+        case "d":
+          torusPos.value[0] += step;
+          break;
+
+        default:
+          break;
+      }
+    }
+    if (event.key == "r") {
+      runAnimation.value = !runAnimation.value;
     }
   }
 };
+
 onMounted(() => {
   torusPos.value[0] = torusRef.value.position.x;
   torusPos.value[1] = torusRef.value.position.y;
   torusPos.value[2] = torusRef.value.position.z;
-  console.log(torusRef.value.position);
   window.addEventListener("keydown", moveTorus);
 });
 
-const animate = () => {
+const { onLoop } = useRenderLoop();
+
+onLoop(({ delta, elapsed }) => {
   if (torusRef.value) {
-    torusRef.value.position.x = torusPos.value[0];
-    torusRef.value.position.y = torusPos.value[1];
-    torusRef.value.position.z = torusPos.value[2];
+    if (runAnimation.value === true) {
+      torusRef.value.rotation.x += Math.sin(delta);
+      torusRef.value.rotation.y += Math.sin(delta);
+      torusRef.value.rotation.z += Math.sin(elapsed);
+
+      /*       torusRef.value.rotation.y += 0.01;*/
+    } else {
+      torusRef.value.position.x = torusPos.value[0];
+      torusRef.value.position.y = torusPos.value[1];
+      torusRef.value.position.z = torusPos.value[2];
+    }
   }
-
-  requestAnimationFrame(animate);
-};
-
-animate();
+});
 </script>
 
 <template>
@@ -56,16 +71,20 @@ animate();
     preset="realistic"
   >
     <TresPerspectiveCamera :position="[3, 3, 16]" :look-at="[0, 0, 0]" />
-    <TresMesh ref="torusRef">
+    <TresMesh ref="torusRef" cast-shadow>
       <TresTorusGeometry :args="[1, 0.5, 16, 32]" />
       <TresMeshBasicMaterial color="#c44960" />
     </TresMesh>
-    <TresMesh :position="[0, -3, 0]" :rotation="[-Math.PI / 2, 0, 0]">
+    <TresMesh
+      receive-shadow
+      :position="[0, -3, 0]"
+      :rotation="[-Math.PI / 2, 0, 0]"
+    >
       <TresPlaneGeometry :args="[10, 10, 10, 10]" />
-      <TresMeshStandardMaterial color="#f7f7f7" />
+      <TresMeshStandardMaterial color="#4690cd" />
     </TresMesh>
-
-    <TresAmbientLight :intensity="0.2" />
+    <TresDirectionalLight cast-shadow :intensity="1" :position="[0, 5, 0]" />
+    <TresAmbientLight :intensity="0.1" />
     <OrbitControls />
   </TresCanvas>
   <router-link to="/" class="button">Retour à l'accueil</router-link>

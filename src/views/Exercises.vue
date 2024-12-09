@@ -42,6 +42,9 @@
           >Rendu conditionnel</router-link
         >
       </li>
+      <li>
+        <router-link to="/exercises/friend-list">Liste d'amis</router-link>
+      </li>
     </ul>
   </div>
 </template>

@@ -65,6 +65,12 @@ const exercisesRoute = [
     name: "ex-conditional",
     component: () => import("../components/exercises/ExerciseConditional.vue"),
   },
+  {
+    path: "/exercises/friend-list",
+    name: "ex-friends",
+    component: () =>
+      import("../components/exercises/friend-list/FriendList.vue"),
+  },
 ];
 
 export default exercisesRoute;
