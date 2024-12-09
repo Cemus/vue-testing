@@ -23,8 +23,10 @@ const movieText = ref("");
 const movieList = ref([]);
 
 const addMovie = () => {
-  movieList.value.push(movieText.value);
-  movieText.value = "";
+  if (movieText.value) {
+    movieList.value.push(movieText.value);
+    movieText.value = "";
+  }
 };
 
 const deleteMovie = (index) => {
