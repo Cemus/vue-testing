@@ -1,16 +1,16 @@
 <template>
-  <h3>{{ friendName }}</h3>
+  <h3>{{ name }}</h3>
   <div>
-    <p>Phone number : {{ friendPhone }}</p>
-    <p>E-mail : {{ friendMail }}</p>
+    <p>Phone number : {{ phone }}</p>
+    <p>E-mail : {{ mail }}</p>
   </div>
 </template>
 
 <script setup>
-const props = defineProps({
-  friendName: String,
-  friendPhone: String,
-  friendMail: String,
+const friendProps = defineProps({
+  name: String,
+  phone: String,
+  mail: String,
 });
 </script>
 

@@ -4,9 +4,9 @@
     <ul>
       <li v-for="(friend, index) in myFriends">
         <Friend
-          :friendName="friend.name"
-          :friendPhone="friend.phone"
-          :friendMail="friend.mail"
+          :name="friend.name"
+          :phone="friend.phone"
+          :mail="friend.mail"
           :key="index"
         />
       </li>
