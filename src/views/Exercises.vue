@@ -37,6 +37,11 @@
         >
       </li>
       <li><router-link to="/exercises/for">Listes</router-link></li>
+      <li>
+        <router-link to="/exercises/conditional"
+          >Rendu conditionnel</router-link
+        >
+      </li>
     </ul>
   </div>
 </template>

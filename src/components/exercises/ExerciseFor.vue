@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>List rendering</h1>
-    <h1>Watch list :</h1>
+    <h2>Watch list :</h2>
     <ul>
       <li
         v-for="(movies, index) in movieList"
