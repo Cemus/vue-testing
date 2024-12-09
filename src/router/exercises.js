@@ -71,6 +71,12 @@ const exercisesRoute = [
     component: () =>
       import("../components/exercises/friend-list/FriendList.vue"),
   },
+  {
+    path: "/exercises/members-list",
+    name: "ex-members",
+    component: () =>
+      import("../components/exercises/member-list/MembersList.vue"),
+  },
 ];
 
 export default exercisesRoute;

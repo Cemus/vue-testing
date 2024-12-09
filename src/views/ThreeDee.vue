@@ -1,13 +1,28 @@
 <script setup>
-import { TresCanvas, useRenderLoop } from "@tresjs/core";
+import { TresCanvas, useRenderLoop, vLog } from "@tresjs/core";
 import { OrbitControls } from "@tresjs/cientos";
-import { onMounted, ref, shallowRef } from "vue";
+import { onMounted, onUnmounted, reactive, ref, shallowRef } from "vue";
 
 const torusRef = shallowRef(null);
+const cubeRef = shallowRef(null);
+const dirLightRef = ref(null);
 const torusPos = ref([0, 0, 0]);
 const runAnimation = ref(false);
-/* const torusTexture = useLoader(TextureLoader, "./metalBaseColor.png");
- */
+const { onLoop } = useRenderLoop();
+
+const state = reactive({
+  clearColor: "#efebec",
+  alpha: false,
+  windowSize: true,
+});
+
+onMounted(() => {
+  torusPos.value[0] = torusRef.value.position.x;
+  torusPos.value[1] = torusRef.value.position.y;
+  torusPos.value[2] = torusRef.value.position.z;
+  window.addEventListener("keydown", moveTorus);
+});
+
 const moveTorus = (event) => {
   if (torusRef.value) {
     if (!runAnimation.value) {
@@ -36,23 +51,18 @@ const moveTorus = (event) => {
   }
 };
 
-onMounted(() => {
-  torusPos.value[0] = torusRef.value.position.x;
-  torusPos.value[1] = torusRef.value.position.y;
-  torusPos.value[2] = torusRef.value.position.z;
-  window.addEventListener("keydown", moveTorus);
-});
-
-const { onLoop } = useRenderLoop();
+const customValue = ref(1);
 
 onLoop(({ delta, elapsed }) => {
   if (torusRef.value) {
     if (runAnimation.value === true) {
-      torusRef.value.rotation.x += Math.sin(delta);
+      /*       torusRef.value.rotation.x += Math.sin(delta);
       torusRef.value.rotation.y += Math.sin(delta);
-      torusRef.value.rotation.z += Math.sin(elapsed);
-
-      /*       torusRef.value.rotation.y += 0.01;*/
+      torusRef.value.rotation.z += Math.sin(elapsed); */
+      console.log(torusRef.value);
+      console.log(torusRef.value.geometry.parameters);
+      customValue.value +=
+        customValue.value > 1 ? -Math.random() * 1 : Math.random() * 1;
     } else {
       torusRef.value.position.x = torusPos.value[0];
       torusRef.value.position.y = torusPos.value[1];
@@ -60,30 +70,41 @@ onLoop(({ delta, elapsed }) => {
     }
   }
 });
+
+onUnmounted(() => {
+  dirLightRef.castShadow = false;
+});
 </script>
 
 <template>
-  <TresCanvas
-    clear-color="#efebec"
-    shadows
-    alpha
-    window-size
-    preset="realistic"
-  >
-    <TresPerspectiveCamera :position="[3, 3, 16]" :look-at="[0, 0, 0]" />
-    <TresMesh ref="torusRef" cast-shadow>
-      <TresTorusGeometry :args="[1, 0.5, 16, 32]" />
-      <TresMeshBasicMaterial color="#c44960" />
+  <TresCanvas v-bind="state" preset="realistic">
+    <TresPerspectiveCamera :position="[0, 4, 16]" :look-at="[0, 0, 0]" />
+    <TresMesh ref="torusRef" cast-shadow :position="[0, 4, 0]">
+      <TresTorusGeometry :args="[customValue, 0.5, 16, 32]" />
+      <TresMeshToonMaterial color="#c44960" />
     </TresMesh>
+    <!--     <TresMesh ref="sphereOneRef" cast-shadow :position="[2, 4, 0.5]">
+      <TresSphereGeometry :args="[1, 8, 8, 8]" />
+      <TresMeshToonMaterial color="#c44960" />
+    </TresMesh>
+    <TresMesh ref="sphereTwoRef" cast-shadow :position="[2, 4, -0.5]">
+      <TresSphereGeometry :args="[1, 8, 8, 8]" />
+      <TresMeshToonMaterial color="#c44960" />
+    </TresMesh> -->
     <TresMesh
       receive-shadow
       :position="[0, -3, 0]"
       :rotation="[-Math.PI / 2, 0, 0]"
     >
       <TresPlaneGeometry :args="[10, 10, 10, 10]" />
-      <TresMeshStandardMaterial color="#4690cd" />
+      <TresMeshToonMaterial color="#4690cd" />
     </TresMesh>
-    <TresDirectionalLight cast-shadow :intensity="1" :position="[0, 5, 0]" />
+    <TresDirectionalLight
+      cast-shadow
+      ref="dirLightRef"
+      :intensity="1"
+      :position="[0, 5, 0]"
+    />
     <TresAmbientLight :intensity="0.1" />
     <OrbitControls />
   </TresCanvas>

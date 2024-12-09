@@ -12,9 +12,9 @@ const router = createRouter({
       component: () => import("../views/Home.vue"),
     },
     {
-      path: "/game",
-      name: "game",
-      component: () => import("../views/Game.vue"),
+      path: "/3d",
+      name: "3d",
+      component: () => import("../views/threeDee.vue"),
     },
     ...lessonsRouter,
     ...exercisesRoute,
