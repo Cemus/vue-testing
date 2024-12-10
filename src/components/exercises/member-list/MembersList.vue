@@ -4,10 +4,12 @@
     <ul>
       <li v-for="(friend, index) in myFriends">
         <Member
-          :phoneMember="74684684"
+          :nameMember="friend.name"
+          :phoneMember="friend.phone"
           :mailMember="friend.mail"
-          :premiumMember="98998"
+          :premiumMember="false"
           :key="index"
+          @mon-event-premium="reactionStatus"
         />
       </li>
     </ul>
@@ -15,9 +17,12 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import Member from "./Members.vue";
 
+const reactionStatus = () => {
+  alert("Premium!");
+};
 const myFriends = ref([
   {
     name: "Jean",
@@ -53,7 +58,10 @@ div {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 0.5rem;
+  gap: 1rem;
+}
+li {
+  margin-bottom: 1rem;
 }
 li::before {
   content: "";
