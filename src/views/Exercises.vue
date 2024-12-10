@@ -53,6 +53,9 @@
       <li>
         <router-link to="/exercises/api">Gloire aux API</router-link>
       </li>
+      <li>
+        <router-link to="/exercises/lesson">Routes dynamiques</router-link>
+      </li>
     </ul>
   </div>
 </template>

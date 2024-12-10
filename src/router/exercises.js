@@ -82,6 +82,17 @@ const exercisesRoute = [
     name: "ex-api",
     component: () => import("../components/exercises/api/ApiMaster.vue"),
   },
+  {
+    path: "/exercises/lesson",
+    name: "ex-lesson",
+    component: () => import("../components/exercises/lesson/TheLesson.vue"),
+  },
+  {
+    path: "/exercises/lesson/details/:id/",
+    name: "details",
+    props: true,
+    component: () => import("../components/exercises/lesson/LessonDetails.vue"),
+  },
 ];
 
 export default exercisesRoute;
