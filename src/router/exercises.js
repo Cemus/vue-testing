@@ -88,7 +88,7 @@ const exercisesRoute = [
     component: () => import("../components/exercises/lesson/TheLesson.vue"),
   },
   {
-    path: "/exercises/lesson/details/:id/",
+    path: "/exercises/lesson/details/:id/:title",
     name: "details",
     props: true,
     component: () => import("../components/exercises/lesson/LessonDetails.vue"),

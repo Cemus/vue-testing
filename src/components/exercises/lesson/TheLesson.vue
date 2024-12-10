@@ -7,7 +7,7 @@
       :key="index"
       :to="{
         name: 'details',
-        params: { id: item.id },
+        params: { id: item.id, title: item.name },
       }"
     >
       Lien vers {{ item.name }}
