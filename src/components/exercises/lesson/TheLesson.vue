@@ -3,7 +3,6 @@
   <ul>
     <router-link
       v-for="(item, index) in items"
-      :title="item.name"
       :key="index"
       :to="{
         name: 'details',
