@@ -50,6 +50,9 @@
           >Liste des membres</router-link
         >
       </li>
+      <li>
+        <router-link to="/exercises/api">Gloire aux API</router-link>
+      </li>
     </ul>
   </div>
 </template>

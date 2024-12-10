@@ -77,6 +77,11 @@ const exercisesRoute = [
     component: () =>
       import("../components/exercises/member-list/MembersList.vue"),
   },
+  {
+    path: "/exercises/api",
+    name: "ex-api",
+    component: () => import("../components/exercises/api/ApiMaster.vue"),
+  },
 ];
 
 export default exercisesRoute;

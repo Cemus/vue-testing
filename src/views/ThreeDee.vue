@@ -62,7 +62,7 @@ onLoop(({ delta, elapsed }) => {
       console.log(torusRef.value);
       console.log(torusRef.value.geometry.parameters);
       customValue.value +=
-        customValue.value > 1 ? -Math.random() * 1 : Math.random() * 1;
+        customValue.value > 1 ? -Math.random() * 0.1 : Math.random() * 0.5;
     } else {
       torusRef.value.position.x = torusPos.value[0];
       torusRef.value.position.y = torusPos.value[1];
@@ -83,14 +83,14 @@ onUnmounted(() => {
       <TresTorusGeometry :args="[customValue, 0.5, 16, 32]" />
       <TresMeshToonMaterial color="#c44960" />
     </TresMesh>
-    <!--     <TresMesh ref="sphereOneRef" cast-shadow :position="[2, 4, 0.5]">
+    <TresMesh ref="sphereOneRef" cast-shadow :position="[2, 4, 0.5]">
       <TresSphereGeometry :args="[1, 8, 8, 8]" />
       <TresMeshToonMaterial color="#c44960" />
     </TresMesh>
     <TresMesh ref="sphereTwoRef" cast-shadow :position="[2, 4, -0.5]">
       <TresSphereGeometry :args="[1, 8, 8, 8]" />
       <TresMeshToonMaterial color="#c44960" />
-    </TresMesh> -->
+    </TresMesh>
     <TresMesh
       receive-shadow
       :position="[0, -3, 0]"
