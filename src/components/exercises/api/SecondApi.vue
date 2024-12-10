@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div v-if="!informations"><h3>Loading...</h3></div>
+  <div v-else>
     <h3>
       Météo de {{ informations.city_info.name }} ({{
         informations.city_info.country
@@ -28,8 +29,9 @@ const informations = ref(null);
 
 onMounted(async () => {
   informations.value = await props.fetchAPI(
-    ` https://prevision-meteo.ch/services/json/toulouse`
+    `https://prevision-meteo.ch/services/json/toulouse`
   );
+  console.log(informations);
 });
 
 onUnmounted(() => {

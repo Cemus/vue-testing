@@ -1,4 +1,6 @@
 <template>
+  <div v-if="!informations"><h3>Loading...</h3></div>
+
   <div>
     <h3>Pokémon :</h3>
     <ul v-for="info in informations">
