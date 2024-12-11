@@ -16,4 +16,11 @@
 * {
   user-select: none;
 }
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
 </style>

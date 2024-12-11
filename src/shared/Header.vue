@@ -1,18 +1,18 @@
 <template>
   <header>
-    <h1><router-link to="/">Coucou</router-link></h1>
-    <NavBar />
+    <HeaderNavBar />
   </header>
 </template>
 
-<script>
-import NavBar from "./NavBar.vue";
-
-export default { components: { NavBar } };
+<script setup>
+import HeaderNavBar from "./HeaderNavbar.vue";
 </script>
 
 <style scoped>
 * {
   user-select: none;
+}
+header {
+  padding: 1rem;
 }
 </style>

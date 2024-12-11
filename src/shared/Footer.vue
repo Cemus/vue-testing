@@ -1,11 +1,9 @@
 <template>
-  <footer>
-    <p>Gros footer</p>
-    <p>Date et heure du jour : {{ date }}</p>
-  </footer>
+  <footer>Coucou</footer>
 </template>
 
 <script setup>
+import FooterNavBar from "./FooterNavBar.vue";
 import { onMounted, onUnmounted, ref } from "vue";
 
 const date = ref(new Date().toLocaleString());
@@ -20,4 +18,9 @@ onMounted(() => {
 });
 </script>
 
-<style></style>
+<style scoped>
+footer {
+  text-align: center;
+  width: 100%;
+}
+</style>

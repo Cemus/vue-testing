@@ -16,6 +16,11 @@ const router = createRouter({
       name: "3d",
       component: () => import("../views/threeDee.vue"),
     },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("../views/RegisterPageView.vue"),
+    },
     ...lessonsRouter,
     ...exercisesRoute,
     {
