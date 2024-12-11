@@ -69,13 +69,13 @@ const exercisesRoute = [
     path: "/exercises/friend-list",
     name: "ex-friends",
     component: () =>
-      import("../components/exercises/friend-list/FriendList.vue"),
+      import("../components/exercises/friend-list/FriendContainer.vue"),
   },
   {
     path: "/exercises/members-list",
     name: "ex-members",
     component: () =>
-      import("../components/exercises/member-list/MembersList.vue"),
+      import("../components/exercises/member-list/MembersContainer.vue"),
   },
   {
     path: "/exercises/api",

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Friend list</h1>
+    <h1>Members list</h1>
     <ul>
       <li v-for="(friend, index) in myFriends">
         <Member

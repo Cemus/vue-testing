@@ -35,7 +35,7 @@ const emit = defineEmits({
 });
 
 const goPremium = (id) => {
-  emit("mon-event-premium"); //Oups
+  emit("mon-event-premium", id);
 };
 
 const visibility = ref(false);
