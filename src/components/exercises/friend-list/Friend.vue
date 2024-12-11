@@ -39,7 +39,6 @@ const emit = defineEmits({
 });
 
 const removeFriend = () => {
-  console.log(props.id);
   emit("remove-friend", props.id);
 };
 </script>

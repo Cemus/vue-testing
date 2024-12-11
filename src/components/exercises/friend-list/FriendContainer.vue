@@ -50,7 +50,6 @@ const addFriend = (friendObj) => {
 const removeFriend = (friendId) => {
   try {
     if (friendId) {
-      console.log(myFriends.value);
       myFriends.value.splice(
         myFriends.value.find((friend) => friend.id === friendId),
         1
@@ -63,7 +62,6 @@ const removeFriend = (friendId) => {
     console.error(error);
   }
 };
-console.log(localStorage.getItem("friends"));
 const myFriends = ref(
   localStorage.getItem("friends")
     ? JSON.parse(localStorage.getItem("friends"))
@@ -106,9 +104,6 @@ const myFriends = ref(
       ]
 );
 
-onMounted(() => {
-  console.log(myFriends.value);
-});
 const toggleVisibility = (friendName) => {
   myFriends.value.forEach((f) => {
     if (f.name == friendName) {
