@@ -30,7 +30,7 @@ const onSubmit = () => {
   const p = phoneInput.value;
   const m = mailInput.value;
   emit("add-friend", {
-    id: new Date().toISOString,
+    id: parseInt(new Date().toISOString()),
     name: n,
     phone: p,
     mail: m,

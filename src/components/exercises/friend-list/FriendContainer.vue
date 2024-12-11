@@ -5,12 +5,14 @@
     <ul>
       <li v-for="(friend, index) in myFriends">
         <Friend
+          :id="friend.id"
           :name="friend.name"
           :phone="friend.phone"
           :mail="friend.mail"
           :visibility="friend.visibility"
           :toggleVisibility="toggleVisibility"
           :key="index"
+          @remove-friend="removeFriend"
         />
       </li>
     </ul>
@@ -39,44 +41,74 @@ const addFriend = (friendObj) => {
       }
     }
     myFriends.value.push(friendObj);
+    localStorage.setItem("friends", JSON.stringify(myFriends.value));
   } catch (error) {
     console.error(error);
   }
 };
 
-const myFriends = ref([
-  {
-    name: "Jean",
-    phone: "04-64-44-88-22",
-    mail: "Jean@lolilol.fr",
-    visibility: false,
-  },
-  {
-    name: "Paul",
-    phone: "04-64-99-14-27",
-    mail: "Paul@lolilol.fr",
-    visibility: false,
-  },
-  {
-    name: "Véronique",
-    phone: "04-64-56-57-89",
-    mail: "Vero@lolilol.fr",
-    visibility: false,
-  },
-  {
-    name: "Chantal",
-    phone: "04-64-24-24-37",
-    mail: "ch4nt4l@lolilol.fr",
-    visibility: false,
-  },
-  {
-    name: "Raymond",
-    phone: "04-64-24-57-88",
-    mail: "ray@lolilol.fr",
-    visibility: false,
-  },
-]);
+const removeFriend = (friendId) => {
+  try {
+    if (friendId) {
+      console.log(myFriends.value);
+      myFriends.value.splice(
+        myFriends.value.find((friend) => friend.id === friendId),
+        1
+      );
+      localStorage.setItem("friends", JSON.stringify(myFriends.value));
+    } else {
+      throw new Error("Could'nt remove this friend");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+console.log(localStorage.getItem("friends"));
+const myFriends = ref(
+  localStorage.getItem("friends")
+    ? JSON.parse(localStorage.getItem("friends"))
+    : [
+        {
+          id: Math.floor(parseInt(new Date().toISOString()) * Math.random()),
+          name: "Jean",
+          phone: "04-64-44-88-22",
+          mail: "Jean@lolilol.fr",
+          visibility: false,
+        },
+        {
+          id: Math.floor(parseInt(new Date().toISOString()) * Math.random()),
+          name: "Paul",
+          phone: "04-64-99-14-27",
+          mail: "Paul@lolilol.fr",
+          visibility: false,
+        },
+        {
+          id: Math.floor(parseInt(new Date().toISOString()) * Math.random()),
+          name: "Véronique",
+          phone: "04-64-56-57-89",
+          mail: "Vero@lolilol.fr",
+          visibility: false,
+        },
+        {
+          id: Math.floor(parseInt(new Date().toISOString()) * Math.random()),
+          name: "Chantal",
+          phone: "04-64-24-24-37",
+          mail: "ch4nt4l@lolilol.fr",
+          visibility: false,
+        },
+        {
+          id: Math.floor(parseInt(new Date().toISOString()) * Math.random()),
+          name: "Raymond",
+          phone: "04-64-24-57-88",
+          mail: "ray@lolilol.fr",
+          visibility: false,
+        },
+      ]
+);
 
+onMounted(() => {
+  console.log(myFriends.value);
+});
 const toggleVisibility = (friendName) => {
   myFriends.value.forEach((f) => {
     if (f.name == friendName) {
@@ -85,9 +117,11 @@ const toggleVisibility = (friendName) => {
   });
 };
 const hideAll = (boolean) => {
-  myFriends.value.forEach((friend) => {
-    friend.visibility = boolean;
-  });
+  if (myFriends.value) {
+    myFriends.value.forEach((friend) => {
+      friend.visibility = boolean;
+    });
+  }
 };
 </script>
 
@@ -99,6 +133,12 @@ div {
   justify-content: space-around;
   gap: 0.5rem;
   padding: 1rem;
+}
+ul {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
 }
 li::before {
   content: "";
