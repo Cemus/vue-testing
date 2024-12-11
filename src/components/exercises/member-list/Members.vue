@@ -25,7 +25,7 @@ const emit = defineEmits({
   "mon-event-premium": (id) => {
     if (!id) {
       console.warn("/!\\");
-      console.error("Vous devez spécifiez une id !");
+      console.error("Vous devez spécifier une id !");
       console.warn("/!\\");
       return false;
     } else {
