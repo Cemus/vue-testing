@@ -14,7 +14,7 @@
         <input type="mail" name="mail" id="mail" v-model="mailInput" />
       </label>
     </fieldset>
-    <button type="button" @click="onSubmit()">Ajouter un ami</button>
+    <button type="submit" @click.prevent="onSubmit()">Ajouter un ami</button>
   </form>
 </template>
 
