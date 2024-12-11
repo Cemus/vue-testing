@@ -1,23 +1,23 @@
 <template>
   <main>
-    <div
-      :class="[memberProps.premiumMember === true ? 'premium' : 'paysan']"
-    ></div>
+    <div :class="[props.premium === true ? 'premium' : 'paysan']"></div>
 
     <button
       title="Click to display additional informations"
       type="button"
       @click="visibility = !visibility"
     >
-      {{ memberProps.nameMember }}
+      {{ props.name }}
     </button>
   </main>
 
   <div v-if="visibility">
-    <p>Phone number : {{ memberProps.phoneMember }}</p>
-    <p>E-mail : {{ memberProps.mailMember }}</p>
+    <p>Phone number : {{ props.phone }}</p>
+    <p>E-mail : {{ props.mail }}</p>
   </div>
-  <button type="button" @click="emit('mon-event-premium')">Go premium</button>
+  <button type="button" @click="emit('mon-event-premium', props.id)">
+    Go premium
+  </button>
 </template>
 
 <script setup>
@@ -25,20 +25,24 @@ import { ref } from "vue";
 const emit = defineEmits(["mon-event-premium"]);
 
 const visibility = ref(false);
-const memberProps = defineProps({
-  nameMember: {
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
+  name: {
     type: String,
     required: true,
   },
-  phoneMember: {
+  phone: {
     type: String,
     required: true,
   },
-  mailMember: {
+  mail: {
     type: String,
     required: true,
   },
-  premiumMember: {
+  premium: {
     type: Boolean,
     required: false,
   },
