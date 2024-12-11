@@ -15,14 +15,28 @@
     <p>Phone number : {{ props.phone }}</p>
     <p>E-mail : {{ props.mail }}</p>
   </div>
-  <button type="button" @click="emit('mon-event-premium', props.id)">
-    Go premium
-  </button>
+  <button type="button" @click="goPremium(props.id)">Go premium</button>
 </template>
 
 <script setup>
 import { ref } from "vue";
-const emit = defineEmits(["mon-event-premium"]);
+
+const emit = defineEmits({
+  "mon-event-premium": (id) => {
+    if (!id) {
+      console.warn("/!\\");
+      console.error("Vous devez spécifiez une id !");
+      console.warn("/!\\");
+      return false;
+    } else {
+      return true;
+    }
+  },
+});
+
+const goPremium = (id) => {
+  emit("mon-event-premium"); //Oups
+};
 
 const visibility = ref(false);
 const props = defineProps({

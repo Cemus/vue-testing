@@ -22,9 +22,11 @@ import { ref } from "vue";
 import Member from "./Members.vue";
 
 const reactionStatus = (id) => {
-  alert(
-    `${myFriends.value.find((f) => f.id === id).name} est devenu PREMIUM !`
-  );
+  if (id) {
+    alert(
+      `${myFriends.value.find((f) => f.id === id).name} est devenu PREMIUM !`
+    );
+  }
 };
 const myFriends = ref([
   {
