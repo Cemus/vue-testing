@@ -16,8 +16,8 @@
     <router-link to="/login">Login</router-link>
   </nav>
   <nav v-else>
-    <button type="button" @click="logout()">Logout</button>|
-    <router-link to="/dashboard">Dashboard</router-link>
+    <router-link to="/dashboard">Dashboard</router-link>|
+    <button type="button" @click="logout()">Logout</button>
   </nav>
 </template>
 
