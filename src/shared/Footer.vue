@@ -21,6 +21,6 @@ onMounted(() => {
 <style scoped>
 footer {
   text-align: center;
-  width: 100%;
+  padding: 0.5rem;
 }
 </style>

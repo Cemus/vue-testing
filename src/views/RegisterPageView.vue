@@ -99,20 +99,20 @@ h1 {
 
 .input-field {
   padding: 0.8rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light);
   border-radius: 4px;
   font-size: 1rem;
   width: 100%;
 }
 
 .input-field:focus {
-  border-color: #007bff;
+  border-color: var(--light2);
   outline: none;
 }
 
 .submit-button {
   padding: 1rem;
-  background-color: #007bff;
+  background-color: var(--contrast);
   color: white;
   border: none;
   border-radius: 4px;
@@ -122,7 +122,7 @@ h1 {
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
+  background-color: var(--light2);
 }
 
 .text-center {
@@ -130,11 +130,12 @@ h1 {
 }
 
 .link-primary {
-  color: #007bff;
+  color: var(--contrast);
   text-decoration: none;
 }
 
 .link-primary:hover {
+  color: var(--light2);
   text-decoration: underline;
 }
 </style>

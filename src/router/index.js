@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import exercisesRoute from "./exercises";
 import lessonsRouter from "./lessons";
+import { auth } from "../firebase/firebase";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -18,8 +19,18 @@ const router = createRouter({
     },
     {
       path: "/register",
-      name: "register",
+      name: "Register",
       component: () => import("../views/RegisterPageView.vue"),
+    },
+    {
+      path: "/login",
+      name: "Login",
+      component: () => import("../views/LoginPageView.vue"),
+    },
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      component: () => import("../views/DashboardView.vue"),
     },
     ...lessonsRouter,
     ...exercisesRoute,
@@ -29,5 +40,18 @@ const router = createRouter({
       component: () => import("../views/NotFoundView.vue"),
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  const currentUser = auth.currentUser;
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!currentUser) {
+      next({ name: "Login" });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 export default router;

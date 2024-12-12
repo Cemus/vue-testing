@@ -21,6 +21,5 @@ nav {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  width: 100%;
 }
 </style>
