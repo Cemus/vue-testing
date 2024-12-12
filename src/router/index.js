@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import exercisesRoute from "./exercises";
 import lessonsRouter from "./lessons";
 import { auth } from "../firebase/firebase";
+import HomeView from "../views/HomeView.vue";
+import ThreeDeeView from "../views/ThreeDeeView.vue";
+import evalRoute from "./eval";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,12 +13,12 @@ const router = createRouter({
       path: "/",
       alias: "/",
       name: "Home",
-      component: () => import("../views/Home.vue"),
+      component: HomeView,
     },
     {
       path: "/3d",
       name: "3d",
-      component: () => import("../views/threeDee.vue"),
+      component: ThreeDeeView,
     },
     {
       path: "/register",
@@ -34,6 +37,7 @@ const router = createRouter({
     },
     ...lessonsRouter,
     ...exercisesRoute,
+    ...evalRoute,
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

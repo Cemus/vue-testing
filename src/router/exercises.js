@@ -2,7 +2,7 @@ const exercisesRoute = [
   {
     path: "/exercises",
     name: "ex",
-    component: () => import("../views/Exercises.vue"),
+    component: () => import("../views/ExercisesView.vue"),
   },
   {
     path: "/exercises/text",

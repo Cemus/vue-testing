@@ -7,6 +7,8 @@
       |
       <router-link to="/exercises">Exercices</router-link>
       |
+      <router-link to="/evaluation">Evaluation</router-link>
+      |
       <router-link to="/3d">3D</router-link>
     </nav>
   </nav>

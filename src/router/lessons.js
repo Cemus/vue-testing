@@ -1,8 +1,10 @@
+import LessonsView from "../views/LessonsView.vue";
+
 const lessonsRouter = [
   {
     path: "/lessons",
     name: "Lesson",
-    component: () => import("../views/Lessons.vue"),
+    component: LessonsView,
   },
   {
     path: "/lessons/interpolation-text",
